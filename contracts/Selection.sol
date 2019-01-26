@@ -22,7 +22,7 @@ contract Selection {
   );
 
   constructor () public {
-    addAgent("ETH_agent_1");
+    addAgent("0x45539C89A9836399C45C3a8c0F01e8ae4EB43dFD");
     addAgent("ETH_agent_2");
     addAgent("ETH_agent_3");
     addAgent("ETH_agent_4");
