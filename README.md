@@ -21,21 +21,22 @@ Install these prerequisites to follow along with the tutorial. See free video tu
 
 `git clone https://github.com/cryptobarbossa/ethgram`
 
-## Step 2. Install dependencies
+## Step 2. Install dependencies (truffle included in package so no need to install it globally)
 
 ```
-$ cd election
+$ cd ethgram
 $ npm install
+$ npm install web3@1.0.0-beta.37
 ```
 
 ## Step 3. Start Ganache
 
 Open the Ganache GUI.
 
-## Step 4. Compile & Deploy Election Smart Contract
+## Step 4. Compile & Deploy Smart Contract
 
 `$ truffle migrate --reset`
-You must migrate the election smart contract each time your restart ganache.
+You must migrate the smart contract each time your restart ganache.
 
 ## Step 5. Configure Metamask
 

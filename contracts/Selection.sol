@@ -32,7 +32,7 @@ contract Selection {
     // addAgent("ETH_agent_4");
 
     // For testing we will use the Ganache network
-    addAgent("consensys.influencer", 0x838574D3AB509D87430b49460e2bA326bbE51B77);
+    addAgent("consensys.influencer", 0xE5d210b3EC941C71C20096Dde60eE0e6dB74C0cC);
     // addAgent("consensys.influencer", 0x838574D3AB509D87430b49460e2bA326bbE51B77);
     // addAgent("consensys.influencer", 0x838574D3AB509D87430b49460e2bA326bbE51B77);
     // addAgent("consensys.influencer", 0x838574D3AB509D87430b49460e2bA326bbE51B77);
