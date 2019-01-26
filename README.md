@@ -22,7 +22,7 @@ Install these prerequisites to follow along with the tutorial. See free video tu
 `git clone https://github.com/cryptobarbossa/ethgram`
 
 ## Step 2. Install dependencies (truffle included in package so no need to install it globally)
-
+## Run truffle like -> $ ./node_modules/.bin/truffle
 ```
 $ cd ethgram
 $ npm install
