@@ -90,23 +90,23 @@ App = {
 
         packageSelect.append(
           "<option value='" +
-            1 +
+            10000000000000000 +
             "' >" +
-            "0.1 ETH: Basic Influencer Package @ 200 Daily User Engagements " +
+            "0.01 ETH: Basic Influencer Package @ 200 Daily User Engagements " +
             "</ option>"
         );
         packageSelect.append(
           "<option value='" +
-            1 +
+            20000000000000000 +
             "' >" +
-            "0.2 ETH: Popular Kid Package @ 500 Daily User Engagements" +
+            "0.02 ETH: Popular Kid Package @ 500 Daily User Engagements" +
             "</ option>"
         );
         packageSelect.append(
           "<option value='" +
-            1 +
+            30000000000000000 +
             "' >" +
-            "0.3 ETH: Ethtravagent Package @ 1000 Daily User Engagements" +
+            "0.03 ETH: Ethtravagent Package @ 1000 Daily User Engagements" +
             "</ option>"
         );
 
@@ -116,15 +116,18 @@ App = {
         for (var i = 1; i <= agentsCount; i++) {
           selectionInstance.agents(i).then(function(agent) {
             var id = agent[0];
-            var name = agent[1];
-            var busy = agent[2];
+            var instagram_account = agent[1];
+            var agent_address = agent[2];
+            var busy = agent[3];
 
             // Render agent Result
             var agentTemplate =
               "<tr><th>" +
               id +
               "</th><td>" +
-              name +
+              instagram_account +
+              "</td><td>" +
+              agent_address +
               "</td><td>" +
               busy +
               "</td></tr>";
@@ -132,7 +135,7 @@ App = {
 
             // Render agent ballot option
             var agentOption =
-              "<option value='" + id + "' >" + name + "</ option>";
+              "<option value='" + id + "' >" + instagram_account + "</ option>";
             agentsSelect.append(agentOption);
           });
         }
@@ -153,9 +156,13 @@ App = {
 
   castEngagement: function() {
     var agentId = $("#agentsSelect").val();
+    var packageCost = $("#packageSelect").val();
     App.contracts.Selection.deployed()
       .then(function(instance) {
-        return instance.engage(agentId, { from: App.account });
+        return instance.engage(agentId, {
+          from: App.account,
+          value: packageCost
+        });
       })
       .then(function(result) {
         // Wait for engagement to update
