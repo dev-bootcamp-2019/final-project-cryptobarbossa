@@ -4,6 +4,17 @@ import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
 import "../contracts/Selection.sol";
 
+/*
+  Testing is done to make sure all the functions are behaving as expected. 
+  To make sure that the contract is ready for live deployment I have had to make sure to test real engagement
+  and bad actor engagement.
+  The tests cover:
+      1. User engagement with agent (passing INCORRECT Id)
+      2. User engagement with agent (passing CORRECT ID but WRONG PRICE)
+      3. User engagement with agent (passing correct values overall)
+      4. Owner access modifier checks
+      5. Active and available agent checks
+*/
 contract TestSelection {
 
   // Initial Ether balance

@@ -1,8 +1,19 @@
 pragma solidity 0.5.0;
 
-contract Selection {
+import "./SafeMath.sol";
 
-    /* set owner */
+/*
+  Agent Selection Contract: Allows users on the Ethereum network to engage with Artificial agents.
+*/
+contract Selection {
+  
+  // Using SafeMath Library for uint256
+  using SafeMath for uint256;
+
+  // bool variable to be used in circuit breaker
+  bool private stopped = false;
+
+  /* set owner */
   address public owner;
 
   // Model a Agent
@@ -24,10 +35,13 @@ contract Selection {
   uint256 public agentsCount;
 
   // engaged event
-  event engagedEvent (uint256 indexed _agentId);
+  event Engaged (uint256 indexed _agentId);
 
   // dispute resolved event
-  event DisputeResolved(uint256 indexed _agentId);
+  event DisputeResolved (uint256 indexed _agentId);
+
+  // amended event
+  event AgentAmended (uint256 indexed _agentId);
 
   // constructor
   constructor () public {
@@ -51,6 +65,16 @@ contract Selection {
     agentsCount ++;
     agents[agentsCount] = Agent(agentsCount, username , _agentAddress, false);
   }
+
+  function activateEmergency() public onlyOwner {
+    stopped = true;
+  }
+
+  // Stop certain functionality during emergency
+  modifier stopInEmergency { if (!stopped) _; }
+
+  // Allow function to run only during emergency
+  modifier onlyInEmergency { if (stopped) _; }
 
   // Checks if user has paid enough
   modifier paidEnough () {
@@ -86,8 +110,13 @@ contract Selection {
     _;
   }
 
+  modifier checkNumberBoundary (uint256 _num) {
+    require(_num > 0 && _num < 2**256-1, "Failed boundary check.");
+    _;
+  }
+
   // Allows users to engage with agents by passing an existing ID and correct payment value
-  function engage (uint256 _agentId) public payable paidEnough() userAlreadyAssigned() validAgent(_agentId) {
+  function engage (uint256 _agentId) public payable paidEnough() userAlreadyAssigned() validAgent(_agentId) stopInEmergency {
     // record that user is engaging with agent
     engagers[msg.sender] = true;
 
@@ -95,7 +124,7 @@ contract Selection {
     agents[_agentId].busy = true;
     agents[_agentId].agentAddress.transfer(msg.value);
     // trigger engagement event
-    emit engagedEvent(_agentId);
+    emit Engaged(_agentId);
   }
 
   // Used to test contract functionality. 
@@ -107,7 +136,7 @@ contract Selection {
     agents[_agentId].busy = true;
     agents[_agentId].agentAddress.transfer(msg.value);
     // trigger engagement event
-    emit engagedEvent(_agentId);
+    emit Engaged(_agentId);
   }
 
   /* Mimick example of a dispute between a buyer and agent. */
@@ -125,6 +154,11 @@ contract Selection {
     agentAddress = agents[_agentId].agentAddress;
     busy = agents[_agentId].busy;
     return (id, name, agentAddress, busy);
+  }
+
+  function amendAgent(uint256 _agentId) public onlyOwner checkNumberBoundary(_agentId) onlyInEmergency returns (bool) {
+    agents[_agentId].id = _agentId.add(1);
+    emit AgentAmended(agents[_agentId].id);
   }
 
   // Allow contract to receive ether
