@@ -2,12 +2,12 @@ var Web3 = require('web3');
 var web3 = new Web3();
 
 // Rinkeby ETH_AGENT_1 @ litecoin_official
-const walletAddress = '0xc01Af5741c52eA8dDa9166030a104f86CF181622';
-web3.setProvider(new web3.providers.HttpProvider('https://rinkeby.infura.io/'));
+// const walletAddress = '0xc01Af5741c52eA8dDa9166030a104f86CF181622';
+// web3.setProvider(new web3.providers.HttpProvider('https://rinkeby.infura.io/'));
 
 // Rinkeby ETH_AGENT_2 @ monerocurrency
-// const walletAddress = '0x80479A14AD36607662A2631fB06F8ABe38F5126a';
-// web3.setProvider(new web3.providers.HttpProvider('https://rinkeby.infura.io/'));
+const walletAddress = '0x7c2968a3402641fafcA01d11E3824ce10460ABCc';
+web3.setProvider(new web3.providers.HttpProvider('https://rinkeby.infura.io/'));
 
 // Rinkeby ETH_AGENT_3 @ bitcoin_page
 // const walletAddress = '0x58C57FB44cC4AF39C951DB2E06c1C6081Bd6efC8';
