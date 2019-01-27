@@ -10178,6 +10178,12 @@
     "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
   },
   "networks": {
+    "4": {
+      "events": {},
+      "links": {},
+      "address": "",
+      "transactionHash": ""
+    },
     "5777": {
       "events": {},
       "links": {},

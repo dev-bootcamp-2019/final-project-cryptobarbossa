@@ -1,4 +1,4 @@
-var Web3 = require('web3');
+var Web3 = require("web3");
 var web3 = new Web3();
 
 // Rinkeby ETH_AGENT_1 @ litecoin_official
@@ -14,18 +14,18 @@ var web3 = new Web3();
 // web3.setProvider(new web3.providers.HttpProvider('https://rinkeby.infura.io/'));
 
 // Rinkeby ETH_AGENT_4 @ loloapparel
-const walletAddress = '0x06e1BEEc1AA0Cb4F843Edc49E4301611671fDD84';
-web3.setProvider(new web3.providers.HttpProvider('https://rinkeby.infura.io/'));
-
+const walletAddress = "0x06e1BEEc1AA0Cb4F843Edc49E4301611671fDD84";
+web3.setProvider(new web3.providers.HttpProvider("https://rinkeby.infura.io/"));
 
 // Used for local testing only
 // const walletAddress = '0xE5d210b3EC941C71C20096Dde60eE0e6dB74C0cC';
 // web3.setProvider(new web3.providers.HttpProvider('http://127.0.0.1:7545'));
 
-
-web3.eth.getBalance(walletAddress)
-.then(function (balance) {
+web3.eth
+  .getBalance(walletAddress)
+  .then(function(balance) {
     console.log(balance);
-}).catch(function(e) {
+  })
+  .catch(function(e) {
     console.log(e);
-});
+  });
