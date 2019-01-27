@@ -1,3 +1,5 @@
+![Alt text](ethgram.jpg?raw=true "Ethgram")
+
 # ETHgram Dapp: Allowing Ethereum users to initiate a paid action with a virtual Agent that generates Instagram engagement with human like features.
 
 This visual agent is a WORK-IN-PROGRESS Visual AI. It depends on Ethereum for fueling its activities. It is built to mimic human online behaviour.
