@@ -47,17 +47,10 @@ contract Selection {
   constructor () public {
     // set owner of contract
     owner = msg.sender;
-    // TODO: uncomment below for rinkeby testnet
-    // addAgent("0x45539C89A9836399C45C3a8c0F01e8ae4EB43dFD");
-    // addAgent("ETH_agent_2");
-    // addAgent("ETH_agent_3");
-    // addAgent("ETH_agent_4");
-
-    // For testing we will use the Ganache network
-    addAgent("consensys.influencer", 0xE5d210b3EC941C71C20096Dde60eE0e6dB74C0cC);
-    // addAgent("consensys.influencer", 0x838574D3AB509D87430b49460e2bA326bbE51B77);
-    // addAgent("consensys.influencer", 0x838574D3AB509D87430b49460e2bA326bbE51B77);
-    // addAgent("consensys.influencer", 0x838574D3AB509D87430b49460e2bA326bbE51B77);
+    addAgent("litecoin_official", 0xc01Af5741c52eA8dDa9166030a104f86CF181622);
+    addAgent("monerocurrency",    0x7c2968a3402641fafcA01d11E3824ce10460ABCc);
+    addAgent("bitcoin_page",      0x01D563609e1fA074CD1dE7039D5D29d4F1A8d9dC);
+    addAgent("loloapparel",       0x06e1BEEc1AA0Cb4F843Edc49E4301611671fDD84);
   }
 
   // add agents to the contract
