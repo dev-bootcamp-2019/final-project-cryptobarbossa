@@ -4,6 +4,6 @@ Once the balance is retrieved it will be passed into balance.txt and be checked 
 
 The balance.sh file is responsible to call the previous instructions using a cron job that runs every 60 seconds:
 
-* * * * * (export DISPLAY=:0.0; cd /home/ubuntu/ethgram; ./balance.sh)
+* * * * * (export DISPLAY=:0.0; cd /home/ubuntu/slayinstagram; ./balance.sh)
 
-ALL ethgram contents must be in same directory as agent resources directory.
+ALL ethgram contents must be in the slayinstagram directory.
