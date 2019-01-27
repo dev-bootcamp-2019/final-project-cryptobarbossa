@@ -6,9 +6,12 @@ var web3 = new Web3();
 // web3.setProvider(new web3.providers.HttpProvider('https://rinkeby.infura.io/'));
 
 // Rinkeby ETH_AGENT_2 @ monerocurrency
-const walletAddress = '0x80479A14AD36607662A2631fB06F8ABe38F5126a';
-web3.setProvider(new web3.providers.HttpProvider('https://rinkeby.infura.io/'));
+// const walletAddress = '0x80479A14AD36607662A2631fB06F8ABe38F5126a';
+// web3.setProvider(new web3.providers.HttpProvider('https://rinkeby.infura.io/'));
 
+// Rinkeby ETH_AGENT_3 @ bitcoin_page
+const walletAddress = '0x58C57FB44cC4AF39C951DB2E06c1C6081Bd6efC8';
+web3.setProvider(new web3.providers.HttpProvider('https://rinkeby.infura.io/'));
 
 // Used for local testing only
 // const walletAddress = '0xE5d210b3EC941C71C20096Dde60eE0e6dB74C0cC';
