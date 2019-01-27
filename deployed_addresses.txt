@@ -1,3 +1,6 @@
+OFFICIAL WEBSITE ADDRESS:
+https://ethgram.github.io/
+
 RINKEBY TESTNET
 
 Contract address:
@@ -14,3 +17,12 @@ https://rinkeby.etherscan.io/tx/0x02b4fcd09783c3fdd557ca834e176a44e14a5eaa30421c
 
 Contract owner:
 0x45539C89A9836399C45C3a8c0F01e8ae4EB43dFD
+
+
+IPFS
+
+root hash:
+QmNb4yErDucCgTFWgwjBZ6TzVqa3rmss5aacu8WjLgtLhQ
+
+ipfs link:
+/ipfs/QmNb4yErDucCgTFWgwjBZ6TzVqa3rmss5aacu8WjLgtLhQ
