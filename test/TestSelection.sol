@@ -14,6 +14,7 @@ contract TestSelection {
   Proxy public agent;
   Proxy public buyer;
 
+  // Defualt agent assignments
   uint256 agentId = 1;
   string agentName = "consensys.influencer";
   address payable agentAddress = 0xE5d210b3EC941C71C20096Dde60eE0e6dB74C0cC;
@@ -31,7 +32,7 @@ contract TestSelection {
     bool busy;
   }
 
-  // Before each func
+  // Before each function
   function beforeEach () public {
     selection = new Selection();
 
@@ -104,6 +105,7 @@ contract TestSelection {
 contract Proxy {
   address public target;
 
+  // Constructor
   constructor (address _target) public {
     target = _target;
   }
@@ -111,18 +113,22 @@ contract Proxy {
   // Allow contract to receive ether
   function () external payable {}
 
+  // gets address
   function getTarget () public view returns (address) {
     return target;
   }
 
+  // resolves dispute by resetting values
   function resolveDispute (uint256 _agentId) public returns (bool, bytes memory) {
     return address(target).call(abi.encodeWithSignature("resolveDispute(uint256)", _agentId));
   }
 
+  // engages with agent with given parametes
   function engage (uint256 _agentId, uint256 offer) public returns (bool, bytes memory) {
     return address(target).call.value(offer)(abi.encodeWithSignature("engage(uint256)", _agentId));
   }
   
+  // engages with agent using specific function for testing environment
   function engageLocal (uint256 _agentId, uint256 offer) public returns (bool, bytes memory) {
     return address(target).call.value(offer)(abi.encodeWithSignature("engageLocal(uint256)", _agentId));
   }
