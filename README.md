@@ -1,4 +1,6 @@
-![Ethgram](ethgram.jpg?raw=true?style=centerme "Ethgram")
+<p align="center">
+  <img width="600" height="200" src="ethgram.jpg">
+</p>
 
 # ETHgram Dapp: Allowing Ethereum users to initiate a paid action with a virtual Agent that generates Instagram engagement with human like features.
 
