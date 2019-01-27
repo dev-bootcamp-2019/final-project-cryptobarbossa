@@ -23,12 +23,15 @@ contract Selection {
   // Store Agents Count
   uint256 public agentsCount;
 
-  // voted event
+  // engaged event
   event engagedEvent (uint256 indexed _agentId);
 
+  // dispute resolved event
   event DisputeResolved(uint256 indexed _agentId);
 
+  // constructor
   constructor () public {
+    // set owner of contract
     owner = msg.sender;
     // TODO: uncomment below for rinkeby testnet
     // addAgent("0x45539C89A9836399C45C3a8c0F01e8ae4EB43dFD");
@@ -43,40 +46,47 @@ contract Selection {
     // addAgent("consensys.influencer", 0x838574D3AB509D87430b49460e2bA326bbE51B77);
   }
 
+  // add agents to the contract
   function addAgent (string memory username, address payable _agentAddress) public onlyOwner {
     agentsCount ++;
     agents[agentsCount] = Agent(agentsCount, username , _agentAddress, false);
   }
 
+  // Checks if user has paid enough
   modifier paidEnough () {
     // require minimum payment.
     require(msg.value >= 0.01 ether, "Not enough ETH sent. Minimum ETH required: 0.01");
     _;
   }
 
-    modifier paidEnoughLocal () {
+  // Checks if user has paid enough during testing. (Only used to test contract)
+  modifier paidEnoughLocal () {
     // require minimum payment.
-    require(msg.value >= 1, "Not enough ETH sent. Minimum ETH required: 0.01");
+    require(msg.value >= 1, "Not enough ETH sent.");
     _;
   }
 
+  // Checks if a user has already engaged with an agent
   modifier userAlreadyAssigned () {
     // require that user has not engaged already.
     require(engagers[msg.sender] == false, "User already engaged with another agent.");
     _;
   }
 
+  // Checks if the chosen agentId represents an existing agent
   modifier validAgent (uint256 _agentId) {
     // require a valid agent
     require(_agentId > 0 && _agentId <= agentsCount, "Incorrect ID");
     _;
   }
 
+  // Checks if only the owner can access certain functionality
   modifier onlyOwner {
     require(msg.sender == owner, "Only owner allowed access.");
     _;
   }
 
+  // Allows users to engage with agents by passing an existing ID and correct payment value
   function engage (uint256 _agentId) public payable paidEnough() userAlreadyAssigned() validAgent(_agentId) {
     // record that user is engaging with agent
     engagers[msg.sender] = true;
@@ -108,6 +118,7 @@ contract Selection {
     return true;
   }
 
+  // Used during testing only. Allows contract to fetch current agents by chosen Id
   function fetchAgent (uint256 _agentId) public view returns (uint256 id, string memory name, address payable agentAddress, bool busy) {
     id = agents[_agentId].id;
     name = agents[_agentId].name;
