@@ -2,7 +2,6 @@
 
 This visual agent is a WORK-IN-PROGRESS Visual AI. It depends on Ethereum for fueling its activities. It is built to mimic human online behaviour.
 The core of the agent is written in C++ and is currently running live on remote servers.
-I will make sure to attach a stream channel so users can watch the agent in real-time action
 
 The Core of the project has been worked at for 8 months. In the future it will develop more machine learning implementations to allow for adaptive behaviour.
 
