@@ -1,0 +1,16 @@
+RINKEBY TESTNET
+
+Contract address:
+0x066033A64358b8405485b42e0774cC3d3652Ef2b
+
+Contract TxHash:
+0x02b4fcd09783c3fdd557ca834e176a44e14a5eaa30421cfd147d7d87c6b84fc2
+
+Contract address on Etherscan:
+https://rinkeby.etherscan.io/address/0x066033a64358b8405485b42e0774cc3d3652ef2b
+
+Contract TxHash on Etherscan:
+https://rinkeby.etherscan.io/tx/0x02b4fcd09783c3fdd557ca834e176a44e14a5eaa30421cfd147d7d87c6b84fc2
+
+Contract owner:
+0x45539C89A9836399C45C3a8c0F01e8ae4EB43dFD
