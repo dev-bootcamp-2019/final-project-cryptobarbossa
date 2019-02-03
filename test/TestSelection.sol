@@ -27,7 +27,7 @@ contract TestSelection {
 
   // Defualt agent assignments
   uint256 agentId = 1;
-  string agentName = "consensys.influencer";
+  string agentName = "litecoin_official";
   address payable agentAddress = 0xE5d210b3EC941C71C20096Dde60eE0e6dB74C0cC;
   bool isBusy = false;
 
