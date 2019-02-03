@@ -28,7 +28,7 @@ contract TestSelection {
   // Defualt agent assignments
   uint256 agentId = 1;
   string agentName = "litecoin_official";
-  address payable agentAddress = 0xE5d210b3EC941C71C20096Dde60eE0e6dB74C0cC;
+  address payable agentAddress = 0xc01Af5741c52eA8dDa9166030a104f86CF181622;
   bool isBusy = false;
 
   // Fake price and agent data
